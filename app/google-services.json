@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "227335495033",
+    "firebase_url": "https://dbmadeeasy-ec4a9.firebaseio.com",
+    "project_id": "dbmadeeasy-ec4a9",
+    "storage_bucket": "dbmadeeasy-ec4a9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:227335495033:android:36fcb050e7286b6c",
+        "android_client_info": {
+          "package_name": "com.csnmu.databasesmadeeasy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "227335495033-73qcmkupoh1p7852961qgg5mcft0ataq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgkbRcUMbgIZ764tr8XwFzNfHP1ZPpyiQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
