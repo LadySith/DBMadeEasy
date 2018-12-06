@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Databases Made Easy</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="enter_email">Enter Email</string>
+    <string name="register">Register</string>
+    <string name="no_account_register">No Account? Register</string>
+    <string name="already_have_an_account_sign_in">Already have an account? Sign in</string>
+    <string name="login">Login</string>
 </resources>
