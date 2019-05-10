@@ -68,7 +68,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             return;
         }
 
-        if(password != confirmPassword) {
+        if(!password.equals(confirmPassword)) {
             Toast.makeText(this,"Passwords do not match",Toast.LENGTH_LONG).show();
         }
 
@@ -87,6 +87,9 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                         if(task.isSuccessful()){
                             //display some message here
                             Toast.makeText(RegisterActivity.this,"Successfully registered",Toast.LENGTH_LONG).show();
+                            Intent intent = new Intent(RegisterActivity.this, ConceptActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            startActivity(intent);
                         }else{
                             //display some message here
                             if (task.getException() instanceof FirebaseAuthUserCollisionException){
