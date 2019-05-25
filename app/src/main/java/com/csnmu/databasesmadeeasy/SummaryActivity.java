@@ -1,9 +1,10 @@
 package com.csnmu.databasesmadeeasy;
 
-import android.app.Activity;
 import android.os.Bundle;
 
-public class SummaryActivity extends Activity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class SummaryActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

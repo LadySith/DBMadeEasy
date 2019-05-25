@@ -1,12 +1,12 @@
 package com.csnmu.databasesmadeeasy;
 
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class ContentActivity extends AppCompatActivity {
+public class ContentActivity extends Activity {
 
     private ArrayList<Concept> conceptsArray;
 

@@ -36,6 +36,7 @@ public class MainActivity extends FragmentActivity implements PracticalFragment.
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
+    private ArrayList<Concept> conceptsList;
 
     private DrawerLayout mDrawerLayout;
 
@@ -57,13 +58,48 @@ public class MainActivity extends FragmentActivity implements PracticalFragment.
         tabLayout.setupWithViewPager(viewPager);
 
         mDrawerLayout = findViewById(R.id.drawer_layout);
-
-        //populate concepts arraylist
-        populateConcepts();
     }
 
     @Override
     public void onFragmentInteraction(Uri uri) {
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        // get toolbar
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle(R.string.app_name);
+
+        // build drawer
+        new DrawerBuilder()
+                .withActivity(MainActivity.this)
+                .withToolbar(toolbar)
+                .withHeader(R.layout.nav_header)
+                .addDrawerItems(
+                        new PrimaryDrawerItem().withName("Tutorials"), new PrimaryDrawerItem().withName("Quizzes"), new PrimaryDrawerItem().withName("Logout"))
+                .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+                    @Override
+                    public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+                        switch (position) {
+                            case 0: {
+                                break;
+                            }
+                            case 1: {
+                                break;
+                            }
+                            case 2: {
+                                FirebaseAuth.getInstance().signOut();
+                                finish();
+                                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                                startActivity(intent);
+                                break;
+                            }
+                        }
+                        return true;
+                    }
+                }).build();
     }
 }

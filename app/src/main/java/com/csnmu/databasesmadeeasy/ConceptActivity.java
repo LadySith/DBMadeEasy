@@ -1,17 +1,19 @@
 package com.csnmu.databasesmadeeasy;
 
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import androidx.viewpager.widget.ViewPager;
+
+import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class ConceptActivity extends AppCompatActivity {
+public class ConceptActivity extends Activity {
 
     private ViewPager screenPager;
     ConceptViewPagerAdapter conceptViewPagerAdapter;

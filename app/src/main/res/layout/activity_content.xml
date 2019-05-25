@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:context=".ContentActivity">
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:id="@+id/toolbar"
@@ -24,7 +24,7 @@
             android:textSize="20sp"
             android:textAlignment="center"/>
 
-    </android.support.v7.widget.Toolbar>
+    </androidx.appcompat.widget.Toolbar>
 
     <ScrollView
         android:layout_width="match_parent"
