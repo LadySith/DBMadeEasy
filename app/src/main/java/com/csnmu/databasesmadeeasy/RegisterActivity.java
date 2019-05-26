@@ -88,7 +88,7 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
                         if(task.isSuccessful()){
                             //display some message here
                             Toast.makeText(RegisterActivity.this,"Successfully registered",Toast.LENGTH_LONG).show();
-                            Intent intent = new Intent(RegisterActivity.this, ConceptActivity.class);
+                            Intent intent = new Intent(RegisterActivity.this, ConceptFragment.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(intent);
                         }else{

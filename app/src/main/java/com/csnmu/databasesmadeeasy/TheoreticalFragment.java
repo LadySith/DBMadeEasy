@@ -105,10 +105,30 @@ public class TheoreticalFragment extends Fragment {
 
                 String selected = (String)adapter.getGroup(i);
 
-                if (i1 == 0){
-                    Intent intent = new Intent(getContext(), ConceptActivity.class);
-                    intent.putExtra("CONCEPT_NAME", selected);
-                    startActivity(intent);
+                switch (i1) {
+                    // ExpandableList Summary
+                    case 0: {
+                        Intent intent = new Intent(getContext(), ConceptActivity.class);
+                        intent.putExtra("CONCEPT_NAME", selected);
+                        startActivity(intent);
+                        break;
+                    }
+
+                    // ExpandableList Video
+                    case 1: {
+                        Intent intent = new Intent(getContext(), ConceptActivity.class);
+                        intent.putExtra("CONCEPT_VIDEO", R.raw.database_optimization);
+                        startActivity(intent);
+                        break;
+                    }
+
+                    // ExpandableList Quiz
+                    case 2: {
+                        Intent intent = new Intent(getContext(), ConceptActivity.class);
+                        intent.putExtra("CONCEPT_QUIZ", selected);
+                        startActivity(intent);
+                        break;
+                    }
                 }
 
                 return true;

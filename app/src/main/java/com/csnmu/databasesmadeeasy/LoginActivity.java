@@ -76,7 +76,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                 progressDialog.dismiss();
                 if (task.isSuccessful()) {
                     finish();
-                    Intent intent = new Intent(LoginActivity.this, ConceptActivity.class);
+                    Intent intent = new Intent(LoginActivity.this, ConceptFragment.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                 } else {
