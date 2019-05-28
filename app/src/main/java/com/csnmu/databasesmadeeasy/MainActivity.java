@@ -15,6 +15,7 @@ package com.csnmu.databasesmadeeasy;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import androidx.appcompat.widget.Toolbar;
@@ -26,6 +27,7 @@ import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
+import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 
@@ -33,6 +35,8 @@ import java.util.ArrayList;
 
 /*Code reference for tabs: https://www.youtube.com/watch?v=7zaKUc2zfpI   */
 public class MainActivity extends FragmentActivity implements PracticalFragment.OnFragmentInteractionListener, TheoreticalFragment.OnFragmentInteractionListener {
+
+    private static final String TAG = MainActivity.class.getSimpleName();
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
@@ -79,18 +83,22 @@ public class MainActivity extends FragmentActivity implements PracticalFragment.
                 .withToolbar(toolbar)
                 .withHeader(R.layout.nav_header)
                 .addDrawerItems(
-                        new PrimaryDrawerItem().withName("Tutorials"), new PrimaryDrawerItem().withName("Quizzes"), new PrimaryDrawerItem().withName("Logout"))
+                        new PrimaryDrawerItem().withName("Tutorials"),
+                        new PrimaryDrawerItem().withName("Quizzes"),
+                        new DividerDrawerItem(),
+                        new PrimaryDrawerItem().withName("Logout").withIcon(R.drawable.ic_logout))
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                     @Override
                     public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+                        Log.i(TAG, "Menu click " + position);
                         switch (position) {
-                            case 0: {
-                                break;
-                            }
                             case 1: {
                                 break;
                             }
                             case 2: {
+                                break;
+                            }
+                            case 3: {
                                 FirebaseAuth.getInstance().signOut();
                                 finish();
                                 Intent intent = new Intent(MainActivity.this, LoginActivity.class);

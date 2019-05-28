@@ -1,42 +1,50 @@
 package com.csnmu.databasesmadeeasy;
 
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
     private HashMap<String, List<String>> mStringListHashMap;
-    private String[] mListHeaderGroup;
+    private List<String> mListHeaderGroup;
 
-    public ExpandableListAdapter(HashMap<String, List<String>> mStringListHashMap) {
-        this.mStringListHashMap = mStringListHashMap;
-        mListHeaderGroup = mStringListHashMap.keySet().toArray(new String[0]);
+    public ExpandableListAdapter(List<Pair<String, List<String>>> pairList) {
+        mStringListHashMap = new HashMap<>();
+        mListHeaderGroup = new ArrayList<>();
+        for (int i = 0; i < pairList.size(); i++) {
+            mListHeaderGroup.add(pairList.get(i).first);
+            mStringListHashMap.put(pairList.get(i).first, pairList.get(i).second);
+        }
     }
 
     @Override
     public int getGroupCount() {
-        return mListHeaderGroup.length;
+        return mListHeaderGroup.size();
     }
 
     @Override
     public int getChildrenCount(int i) {
-        return mStringListHashMap.get(mListHeaderGroup[i]).size();
+        List<String> strings = mStringListHashMap.get(mListHeaderGroup.get(i));
+        return (strings != null) ? strings.size() : 0;
     }
 
     @Override
-    public Object getGroup(int i) {
-        return mListHeaderGroup[i];
+    public String getGroup(int i) {
+        return mListHeaderGroup.get(i);
     }
 
     @Override
-    public Object getChild(int i, int i1) {
-        return mStringListHashMap.get(mListHeaderGroup[i]).get(i1);
+    public String getChild(int i, int i1) {
+        List<String> strings = mStringListHashMap.get(mListHeaderGroup.get(i));
+        return (strings != null) ? strings.get(i1) : null;
     }
 
     @Override

@@ -60,20 +60,23 @@ public class ConceptVideoFragment extends Fragment {
         // Get arguments and video URL
         final Bundle arguments = getArguments();
         if (arguments != null) {
-            if (!arguments.containsKey("CONCEPT_VIDEO")) {
+            if (!arguments.containsKey("CONCEPT")) {
                 Toast.makeText(getActivity(), "No video to play", Toast.LENGTH_SHORT).show();
             } else {
-                int resIdVideo = arguments.getInt("CONCEPT_VIDEO");
-                Context context = getContext();
-                if (context != null) {
-                    applicationContext = context.getApplicationContext();
-                    loadVideo(videoView, resIdVideo);
-                    videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                        @Override
-                        public void onCompletion(MediaPlayer mp) {
-                            videoView.stopPlayback();
-                        }
-                    });
+                Concept concept = (Concept) arguments.getSerializable("CONCEPT");
+                if (concept != null) {
+                    int resIdVideo = concept.getVideoRawResId();
+                    Context context = getContext();
+                    if (context != null) {
+                        applicationContext = context.getApplicationContext();
+                        loadVideo(videoView, resIdVideo);
+                        videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                            @Override
+                            public void onCompletion(MediaPlayer mp) {
+                                videoView.stopPlayback();
+                            }
+                        });
+                    }
                 }
             }
         }
@@ -134,14 +137,17 @@ public class ConceptVideoFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        fabGoToQuiz.hide();
         // A problem with VideoView is it can only seek in sets of 10s. If the current duration is 9s and the device is tilted, the seek seeks to 9000ms but the VideoView will start at 0:00 again.
         videoView.start();
+        // Show fab button
+        fabGoToQuiz.show();
+
+        // Restore last position if needed
         if (lastPositionMS != 0) {
             videoView.seekTo(lastPositionMS);
         }
 
-
+        // Show tilt message if in portrait mode
         if (applicationContext.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
             Toast.makeText(applicationContext, "Tilt device for fullscreen video.", Toast.LENGTH_SHORT).show();
         }

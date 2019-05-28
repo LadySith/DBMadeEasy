@@ -15,8 +15,8 @@ import java.util.List;
 
 public class ConceptViewPagerAdapter extends PagerAdapter {
 
-    Context mContext;
-    List<Page> mListScreen;
+    private Context mContext;
+    private List<Page> mListScreen;
 
     public ConceptViewPagerAdapter(Context mContext, List<Page> mListScreen) {
         this.mContext = mContext;
@@ -28,7 +28,7 @@ public class ConceptViewPagerAdapter extends PagerAdapter {
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
 
         LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE) ;
-        View layoutScreen = inflater.inflate(R.layout.layout_screen, null);
+        View layoutScreen = inflater.inflate(R.layout.layout_screen, container, false);
 
         ImageView imgSlide = layoutScreen.findViewById(R.id.iv_screenimg);
         TextView title = layoutScreen.findViewById(R.id.tv_screentitle);
