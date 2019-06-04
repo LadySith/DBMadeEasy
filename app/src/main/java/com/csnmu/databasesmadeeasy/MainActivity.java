@@ -22,8 +22,6 @@ public class MainActivity extends AppCompatActivity implements PracticalFragment
     private TabLayout tabLayout;
     private ViewPager viewPager;
 
-    private DrawerLayout mDrawerLayout;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,34 +39,7 @@ public class MainActivity extends AppCompatActivity implements PracticalFragment
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
 
-        mDrawerLayout = findViewById(R.id.drawer_layout);
-
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(
-                new NavigationView.OnNavigationItemSelectedListener() {
-                    @Override
-                    public boolean onNavigationItemSelected(MenuItem menuItem) {
-                        // set item as selected to persist highlight
-                        menuItem.setChecked(true);
-                        // close drawer when item is tapped
-                        mDrawerLayout.closeDrawers();
-
-                        // Add code here to update the UI based on the item selected
-                        // For example, swap UI fragments here
-                        switch (menuItem.getItemId()) {
-                            case R.id.nav_logout:
-                                FirebaseAuth.getInstance().signOut();
-                                finish();
-                                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                                startActivity(intent);
-                                break;
-                        }
-
-                        return true;
-                    }
-                });
 
 
     }
@@ -93,23 +64,6 @@ public class MainActivity extends AppCompatActivity implements PracticalFragment
             default:
                 return super.onOptionsItemSelected(item);
         }
-    }
-
-    public boolean onNavigationItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        switch (id) {
-            case R.id.nav_logout:
-                FirebaseAuth.getInstance().signOut();
-                finish();
-                Intent intent = new Intent(this, LoginActivity.class);
-                startActivity(intent);
-                break;
-        }
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
     }
 
     @Override
