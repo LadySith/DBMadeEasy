@@ -1,25 +1,15 @@
 package com.csnmu.databasesmadeeasy;
 
-import java.io.Serializable;
-import java.util.List;
-
-public class Concept implements Serializable {
+public class Concept {
 
     private String conceptTitle;
     private String conceptSummary;
-    private List<Page> conceptPages;
-    private int videoRawResId;
-    private List<Quiz> quizList;
+    private Page[] conceptPages;
 
-    public Concept() {
-    }
-
-    public Concept(String title, String summary, List<Page> pages, int videoRawResId, List<Quiz> quizzes){
+    public Concept(String title, String summary, Page[] pages){
         this.conceptTitle = title;
         this.conceptSummary = summary;
         this.conceptPages = pages;
-        this.videoRawResId = videoRawResId;
-        this.quizList = quizzes;
     }
 
     public String getConceptTitle() {
@@ -38,27 +28,11 @@ public class Concept implements Serializable {
         this.conceptSummary = conceptSummary;
     }
 
-    public List<Page> getConceptPages() {
+    public Page[] getConceptPages() {
         return conceptPages;
     }
 
-    public void setConceptPages(List<Page> conceptPages) {
+    public void setConceptPages(Page[] conceptPages) {
         this.conceptPages = conceptPages;
-    }
-
-    public void setVideoRawResId(int videoRawResId) {
-        this.videoRawResId = videoRawResId;
-    }
-
-    public void setQuizList(List<Quiz> quizList) {
-        this.quizList = quizList;
-    }
-
-    public int getVideoRawResId() {
-        return videoRawResId;
-    }
-
-    public List<Quiz> getQuizList() {
-        return quizList;
     }
 }
