@@ -1,22 +1,21 @@
 package com.csnmu.databasesmadeeasy;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
+import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.viewpager.widget.PagerAdapter;
-
 import java.util.List;
 
 
 public class ConceptViewPagerAdapter extends PagerAdapter {
 
-    private Context mContext;
-    private List<Page> mListScreen;
+    Context mContext;
+    List<Page> mListScreen;
 
     public ConceptViewPagerAdapter(Context mContext, List<Page> mListScreen) {
         this.mContext = mContext;
@@ -28,7 +27,7 @@ public class ConceptViewPagerAdapter extends PagerAdapter {
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
 
         LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE) ;
-        View layoutScreen = inflater.inflate(R.layout.layout_screen, container, false);
+        View layoutScreen = inflater.inflate(R.layout.layout_screen, null);
 
         ImageView imgSlide = layoutScreen.findViewById(R.id.iv_screenimg);
         TextView title = layoutScreen.findViewById(R.id.tv_screentitle);

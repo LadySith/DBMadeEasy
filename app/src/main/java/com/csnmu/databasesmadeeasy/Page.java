@@ -1,15 +1,10 @@
 package com.csnmu.databasesmadeeasy;
 
-import java.io.Serializable;
-
-public class Page implements Serializable {
+public class Page {
 
     private String pageTitle;
     private String pageText;
     private int image;
-
-    public Page() {
-    }
 
     public Page(String pageTitle, String pageText){
         this.pageTitle = pageTitle;
