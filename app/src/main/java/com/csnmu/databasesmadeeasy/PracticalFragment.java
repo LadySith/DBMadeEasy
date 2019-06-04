@@ -3,14 +3,15 @@ package com.csnmu.databasesmadeeasy;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
 
+import androidx.fragment.app.Fragment;
+
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 
@@ -76,49 +77,19 @@ public class PracticalFragment extends Fragment {
 
         expListView = rootView.findViewById(R.id.expandable_list_view);
 
-        HashMap<String, List<String>> item = new HashMap<>();
+        List<Pair<String, List<String>>> item = new ArrayList<>();
 
-        ArrayList<String> listRelationShips = new ArrayList<>();
-        listRelationShips.add("Summary");
-        listRelationShips.add("Simulation");
-        listRelationShips.add("Quiz");
-        item.put("Database Definition", listRelationShips);
+        List<String> children = new ArrayList<>();
+        children.add("Summary");
+        children.add("Simulation");
+        children.add("Quiz");
 
-        ArrayList<String> listAttributes = new ArrayList<>();
-        listAttributes.add("Summary");
-        listAttributes.add("Simulation");
-        listAttributes.add("Quiz");
-        item.put("Attributes", listAttributes);
-
-        ArrayList<String> listPKFK = new ArrayList<>();
-        listPKFK.add("Summary");
-        listPKFK.add("Simulation");
-        listPKFK.add("Quiz");
-        item.put("Primary Key and Foreign Key", listPKFK);
-
-        ArrayList<String> listSQLCreate = new ArrayList<>();
-        listSQLCreate.add("Summary");
-        listSQLCreate.add("Simulation");
-        listSQLCreate.add("Quiz");
-        item.put("SQL: Create a DB", listSQLCreate);
-
-        ArrayList<String> listSQLQuery = new ArrayList<>();
-        listSQLQuery.add("Summary");
-        listSQLQuery.add("Simulation");
-        listSQLQuery.add("Quiz");
-        item.put("SQL: Query a DB", listSQLQuery);
-
-        ArrayList<String> listSQLAnomalies = new ArrayList<>();
-        listSQLAnomalies.add("Summary");
-        listSQLAnomalies.add("Simulation");
-        listSQLAnomalies.add("Quiz");
-        item.put("SQL: Anomalies", listSQLAnomalies);
-
-        ArrayList<String> listDDL = new ArrayList<>();
-        listDDL.add("Summary");
-        listDDL.add("Simulation");
-        listDDL.add("Quiz");
-        item.put("SQL: Anomalies", listDDL);
+        item.add(new Pair<>("Database Definition", children));
+        item.add(new Pair<>("Attributes", children));
+        item.add(new Pair<>("Primary Key and Foreign Key", children));
+        item.add(new Pair<>("SQL: Create a DB", children));
+        item.add(new Pair<>("SQL: Query a DB", children));
+        item.add(new Pair<>("SQL: Anomalies", children));
 
         ExpandableListAdapter adapter = new ExpandableListAdapter(item);
         expListView.setAdapter(adapter);
