@@ -20,6 +20,8 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.mikepenz.materialdrawer.AccountHeader;
+import com.mikepenz.materialdrawer.AccountHeaderBuilder;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.DividerDrawerItem;
@@ -62,11 +64,16 @@ public class MainActivity extends AppCompatActivity implements PracticalFragment
 
         //TODO: Add header with account details and DBME logo
 
+        AccountHeader accountHeader = new AccountHeaderBuilder()
+                .withActivity(this).withTranslucentStatusBar(true).withHeaderBackground(R.color.colorPrimary).build();
+
 
         Drawer navDrawer = new DrawerBuilder()
                 .withActivity(MainActivity.this)
                 .withToolbar(toolbar)
+                .withAccountHeader(accountHeader)
                 .addDrawerItems(
+                        new DividerDrawerItem(),
                         new PrimaryDrawerItem().withName("Logout"))
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                     @Override
