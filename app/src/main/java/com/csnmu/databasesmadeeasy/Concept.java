@@ -1,10 +1,13 @@
 package com.csnmu.databasesmadeeasy;
 
-public class Concept {
+import java.io.Serializable;
+
+public class Concept implements Serializable {
 
     private String conceptTitle;
     private String conceptSummary;
     private Page[] conceptPages;
+    private int videoRawResId;
 
     public Concept(String title, String summary, Page[] pages){
         this.conceptTitle = title;
@@ -34,5 +37,13 @@ public class Concept {
 
     public void setConceptPages(Page[] conceptPages) {
         this.conceptPages = conceptPages;
+    }
+
+    public int getVideoRawResId() {
+        return videoRawResId;
+    }
+
+    public void setVideoRawResId(int videoRawResId) {
+        this.videoRawResId = videoRawResId;
     }
 }
