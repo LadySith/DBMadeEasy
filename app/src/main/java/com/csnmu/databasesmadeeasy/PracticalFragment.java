@@ -4,6 +4,8 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
+
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -119,9 +121,6 @@ public class PracticalFragment extends Fragment {
         listDDL.add("Simulation");
         listDDL.add("Quiz");
         item.put("SQL: Anomalies", listDDL);
-
-        ExpandableListAdapter adapter = new ExpandableListAdapter(item);
-        expListView.setAdapter(adapter);
 
         return rootView;
     }

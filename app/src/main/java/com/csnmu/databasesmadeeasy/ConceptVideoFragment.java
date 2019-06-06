@@ -47,6 +47,7 @@ public class ConceptVideoFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_concept_video, container, false);
+        videoView = view.findViewById(R.id.vidConcept);
 
         // Load MediaController
         loadControls();
