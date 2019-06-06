@@ -18,6 +18,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 
+import java.util.Objects;
+
 @SuppressWarnings("StatementWithEmptyBody")
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -70,6 +72,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         if(!password.equals(confirmPassword)) {
             Toast.makeText(this,"Passwords do not match",Toast.LENGTH_LONG).show();
+            return;
         }
 
         //if the email and password are not empty
@@ -87,7 +90,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                         if(task.isSuccessful()){
                             //display some message here
                             Toast.makeText(RegisterActivity.this,"Successfully registered",Toast.LENGTH_LONG).show();
-                            Intent intent = new Intent(RegisterActivity.this, ConceptActivity.class);
+                            Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(intent);
                         }else{
@@ -95,7 +98,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                             if (task.getException() instanceof FirebaseAuthUserCollisionException){
                                 Toast.makeText(RegisterActivity.this,"User already registered",Toast.LENGTH_LONG).show();
                             } else {
-                                Toast.makeText(RegisterActivity.this,task.getException().getMessage(),Toast.LENGTH_LONG).show();
+                                Toast.makeText(RegisterActivity.this, Objects.requireNonNull(task.getException()).getMessage(),Toast.LENGTH_LONG).show();
                             }
                         }
                         progressDialog.dismiss();

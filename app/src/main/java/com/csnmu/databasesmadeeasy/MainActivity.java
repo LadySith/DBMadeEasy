@@ -63,18 +63,19 @@ public class MainActivity extends FragmentActivity implements PracticalFragment.
                 .withActivity(this).withTranslucentStatusBar(true).withHeaderBackground(R.color.colorPrimary).build();
 
 
-        Drawer navDrawer = new DrawerBuilder()
+        new DrawerBuilder()
                 .withActivity(MainActivity.this)
                 .withToolbar(toolbar)
                 .withAccountHeader(accountHeader)
+                .withSelectedItem(-1)
                 .addDrawerItems(
-                        new DividerDrawerItem(),
                         new PrimaryDrawerItem().withName("Logout"))
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                     @Override
                     public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
                         switch (position) {
-                            case 0: {
+                            //When item in drawer selected, do these
+                            case 1: {
                                 FirebaseAuth.getInstance().signOut();
                                 finish();
                                 Intent intent = new Intent(MainActivity.this, LoginActivity.class);
@@ -85,10 +86,6 @@ public class MainActivity extends FragmentActivity implements PracticalFragment.
                         return true;
                     }
                 }).build();
-
-
-
-
 
     }
 
