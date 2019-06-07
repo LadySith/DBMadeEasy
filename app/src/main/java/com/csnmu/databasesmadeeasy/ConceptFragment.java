@@ -77,6 +77,8 @@ public class ConceptFragment extends Fragment {
                         position = 0;
                         screenPager.setCurrentItem(position);
                     }
+
+
                 }
             });
         }

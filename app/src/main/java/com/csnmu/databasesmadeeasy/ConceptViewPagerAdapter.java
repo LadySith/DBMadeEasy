@@ -35,7 +35,14 @@ public class ConceptViewPagerAdapter extends PagerAdapter {
 
         title.setText(mListScreen.get(position).getPageTitle());
         description.setText(mListScreen.get(position).getPageText());
+
         imgSlide.setImageResource(mListScreen.get(position).getImage());
+
+        if (imgSlide.getDrawable() != null) {
+            imgSlide.setVisibility(View.VISIBLE);
+        } else {
+            imgSlide.setVisibility(View.GONE);
+        }
 
         container.addView(layoutScreen);
 
