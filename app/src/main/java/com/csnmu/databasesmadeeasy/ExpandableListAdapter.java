@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.CheckedTextView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -67,7 +68,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         if (view == null)
             view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.ex_list_group, (ViewGroup) viewGroup, false);
 
-        TextView textView = view.findViewById(R.id.textView);
+        TextView textView = view.findViewById(R.id.textViewGroup);
         textView.setText(String.valueOf(getGroup(i)));
         return view;
     }
@@ -77,7 +78,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         if (view == null)
             view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.ex_list_item, (ViewGroup) viewGroup, false);
 
-        TextView textView = view.findViewById(R.id.textView2);
+        TextView textView = view.findViewById(R.id.textViewItem);
         textView.setText(String.valueOf(getChild(i, i1)));
         return view;
     }
