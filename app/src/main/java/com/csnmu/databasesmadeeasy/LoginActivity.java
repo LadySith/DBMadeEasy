@@ -35,6 +35,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         editTextPassword = (EditText) findViewById(R.id.ed_Password);
 
         findViewById(R.id.tv_Reg).setOnClickListener(this);
+        findViewById(R.id.tv_Forgot).setOnClickListener(this);
         findViewById(R.id.bt_Login).setOnClickListener(this);
     }
 
@@ -111,6 +112,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
             case R.id.bt_Login:
                 userLogin();
+                break;
+
+            case R.id.tv_Forgot:
+                finish();
+                startActivity(new Intent(this, ForgotPasswordActivity.class));
                 break;
         }
     }
