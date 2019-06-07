@@ -66,7 +66,7 @@ public class QuizFragment extends Fragment {
                 layoutParams.setMargins(24, 16, 24, 16);
                 radioButton.setLayoutParams(layoutParams);
                 radioButton.setId(count);
-                radioButton.setText(String.format(Locale.getDefault(),"%1$d. %2$s", count+1, answer));
+                radioButton.setText(String.format(Locale.getDefault(),"%1$s", answer));
                 radioGroup.addView(radioButton, count);
                 count++;
             }

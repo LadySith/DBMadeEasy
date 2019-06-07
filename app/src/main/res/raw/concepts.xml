@@ -286,15 +286,15 @@
                     <Answer index="a">Sifting through several records.</Answer>
                     <Answer index="b">Sorting the records</Answer>
                     <Answer index="c">There is no field for city.</Answer>
-                    <Answer index="d">d.All of the above.</Answer>
+                    <Answer index="d">All of the above.</Answer>
                 </Answers>
             </Quiz>
             <Quiz question="How would you solve this problem by altering the file structure?" imgResId="quiz3">
                 <Answers solution="d">
-                    <Answer index="a">a.Enforcing Entity Integrity</Answer>
+                    <Answer index="a">Enforcing Entity Integrity</Answer>
                     <Answer index="b">Primary key</Answer>
                     <Answer index="c">Having A and Enforcing referential integrity</Answer>
-                    <Answer index="d">d.Creating a table for City.</Answer>
+                    <Answer index="d">Creating a table for City.</Answer>
                 </Answers>
             </Quiz>
         </Quizzes>
@@ -317,11 +317,20 @@
             </Page>
         </Pages>
         <Quizzes>
-            <Quiz question="You are given the following database file.\n Determine the normalised tables from the schema: Relational schema: Project (ProjectID [PK], ProjectName, ProjectStartDate, [PK]EmployeeID, EmployeeName, HoursWorked) and mark the correct ones. *Primary key indicated in BOLD" imgResId="quiz4">
+            <Quiz question="What does database normalisation involve?" imgResId="">
+                <Answers solution="b">
+                    <Answer index="a">Sorting records in a specified order</Answer>
+                    <Answer index="b">Simplifying the design of a database</Answer>
+                    <Answer index="c">Making sure all data is the same size</Answer>
+                    <Answer index="d">Proof-reading all text in a database</Answer>
+                </Answers>
+            </Quiz>
+            <Quiz question="You are given the following database file. Determine the normalised tables from the schema: Relational schema: Project (ProjectID [PK], ProjectName, ProjectStartDate, [PK]EmployeeID, EmployeeName, HoursWorked) and mark the correct ones. *Primary key indicated in BOLD" imgResId="quiz4">
                 <Answers solution="d">
-                    <Answer index="a">ProjEmp (ProjectID, EmployeeID,  HoursWorked)</Answer>
-                    <Answer index="b">Employee (EmployeeID, EmployeeName)</Answer>
-                    <Answer index="d">Project (ProjectID, ProjectName, ProjectStartDate)</Answer>
+                    <Answer index="a">ProjEmp(ProjectID, EmployeeID,  HoursWorked)</Answer>
+                    <Answer index="b">Employee(EmployeeID, EmployeeName)</Answer>
+                    <Answer index="c">ProjectName(ProjectID, EmployeeID) </Answer>
+                    <Answer index="d">Project(ProjectID, ProjectName, ProjectStartDate)</Answer>
                 </Answers>
             </Quiz>
         </Quizzes>
