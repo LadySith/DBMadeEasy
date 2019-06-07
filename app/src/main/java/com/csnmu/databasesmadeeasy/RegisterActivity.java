@@ -81,6 +81,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         progressDialog.setMessage("Registering Please Wait...");
         progressDialog.show();
 
+
+
         //creating a new user
         firebaseAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -88,11 +90,25 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         //checking if success
                         if(task.isSuccessful()){
-                            //display some message here
-                            Toast.makeText(RegisterActivity.this,"Successfully registered",Toast.LENGTH_LONG).show();
-                            Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
-                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                            startActivity(intent);
+                            //send email verification
+                            firebaseAuth.getCurrentUser().sendEmailVerification()
+                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()){
+                                        Toast.makeText(RegisterActivity.this,"Registration successful. Please check your email for verification.",Toast.LENGTH_LONG).show();
+                                        editTextEmail.setText("");
+                                        editTextPassword.setText("");
+                                        editTextConfirmPassword.setText("");
+                                    } else {
+                                        Toast.makeText(RegisterActivity.this,task.getException().getMessage(),Toast.LENGTH_LONG).show();
+                                    }
+                                }
+                            });
+
+                            //Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                            //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            //startActivity(intent);
                         }else{
                             //display some message here
                             if (task.getException() instanceof FirebaseAuthUserCollisionException){
