@@ -21,8 +21,9 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Databases Made Easy"
+            android:text="@string/app_name"
             android:textAlignment="center"
+            android:layout_marginEnd="?android:attr/actionBarSize"
             android:textSize="20sp"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
 
