@@ -19,12 +19,11 @@ import com.mikepenz.materialdrawer.AccountHeader;
 import com.mikepenz.materialdrawer.AccountHeaderBuilder;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
-import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 
 /*Code reference for tabs: https://www.youtube.com/watch?v=7zaKUc2zfpI   */
-public class MainActivity extends FragmentActivity implements PracticalFragment.OnFragmentInteractionListener, TheoreticalFragment.OnFragmentInteractionListener {
+public class MainActivity extends FragmentActivity implements ProgressFragment.OnFragmentInteractionListener, TopicsFragment.OnFragmentInteractionListener {
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
@@ -39,8 +38,8 @@ public class MainActivity extends FragmentActivity implements PracticalFragment.
         viewPager = (ViewPager) findViewById(R.id.pager);
         PagerAdapter adapter = new PagerAdapter(getSupportFragmentManager());
         // Adding Fragments
-        adapter.AddFragment(new TheoreticalFragment(), "Theoretical");
-        adapter.AddFragment(new PracticalFragment(), "Practical");
+        adapter.AddFragment(new TopicsFragment(), "Topics");
+        adapter.AddFragment(new ProgressFragment(), "Progress");
 
         // Adapter setup
         viewPager.setAdapter(adapter);

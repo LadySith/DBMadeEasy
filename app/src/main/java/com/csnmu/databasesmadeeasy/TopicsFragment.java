@@ -22,17 +22,17 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link TheoreticalFragment.OnFragmentInteractionListener} interface
+ * {@link TopicsFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
  */
-public class TheoreticalFragment extends Fragment {
-    private static final String TAG = TheoreticalFragment.class.getSimpleName();
+public class TopicsFragment extends Fragment {
+    private static final String TAG = TopicsFragment.class.getSimpleName();
 
     private ExpandableListView expListView;
     private OnFragmentInteractionListener mListener;
     private List<Concept> conceptList;
 
-    public TheoreticalFragment() {
+    public TopicsFragment() {
         // Required empty public constructor
     }
 
@@ -40,7 +40,7 @@ public class TheoreticalFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_practical, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_progress, container, false);
         expListView = rootView.findViewById(R.id.expandable_list_view);
 
         // Get concept list
