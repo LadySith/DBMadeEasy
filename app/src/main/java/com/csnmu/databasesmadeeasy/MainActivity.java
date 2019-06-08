@@ -23,7 +23,7 @@ import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 
 /*Code reference for tabs: https://www.youtube.com/watch?v=7zaKUc2zfpI   */
-public class MainActivity extends FragmentActivity implements ProgressFragment.OnFragmentInteractionListener, TopicsFragment.OnFragmentInteractionListener {
+public class MainActivity extends FragmentActivity implements AboutFragment.OnFragmentInteractionListener, TopicsFragment.OnFragmentInteractionListener {
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
@@ -39,7 +39,7 @@ public class MainActivity extends FragmentActivity implements ProgressFragment.O
         PagerAdapter adapter = new PagerAdapter(getSupportFragmentManager());
         // Adding Fragments
         adapter.AddFragment(new TopicsFragment(), "Topics");
-        adapter.AddFragment(new ProgressFragment(), "Progress");
+        adapter.AddFragment(new AboutFragment(), "About");
 
         // Adapter setup
         viewPager.setAdapter(adapter);

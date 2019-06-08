@@ -5,10 +5,12 @@ import android.net.Uri;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 
+import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -18,12 +20,12 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link ProgressFragment.OnFragmentInteractionListener} interface
+ * {@link AboutFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link ProgressFragment#newInstance} factory method to
+ * Use the {@link AboutFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ProgressFragment extends Fragment {
+public class AboutFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -37,7 +39,7 @@ public class ProgressFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public ProgressFragment() {
+    public AboutFragment() {
         // Required empty public constructor
     }
 
@@ -47,11 +49,11 @@ public class ProgressFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment ProgressFragment.
+     * @return A new instance of fragment AboutFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static ProgressFragment newInstance(String param1, String param2) {
-        ProgressFragment fragment = new ProgressFragment();
+    public static AboutFragment newInstance(String param1, String param2) {
+        AboutFragment fragment = new AboutFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -73,53 +75,10 @@ public class ProgressFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        View rootView = inflater.inflate(R.layout.fragment_progress, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_about, container, false);
 
-        expListView = rootView.findViewById(R.id.expandable_list_view);
-
-        HashMap<String, List<String>> item = new HashMap<>();
-
-        ArrayList<String> listRelationShips = new ArrayList<>();
-        listRelationShips.add("Summary");
-        listRelationShips.add("Simulation");
-        listRelationShips.add("Quiz");
-        item.put("Database Definition", listRelationShips);
-
-        ArrayList<String> listAttributes = new ArrayList<>();
-        listAttributes.add("Summary");
-        listAttributes.add("Simulation");
-        listAttributes.add("Quiz");
-        item.put("Attributes", listAttributes);
-
-        ArrayList<String> listPKFK = new ArrayList<>();
-        listPKFK.add("Summary");
-        listPKFK.add("Simulation");
-        listPKFK.add("Quiz");
-        item.put("Primary Key and Foreign Key", listPKFK);
-
-        ArrayList<String> listSQLCreate = new ArrayList<>();
-        listSQLCreate.add("Summary");
-        listSQLCreate.add("Simulation");
-        listSQLCreate.add("Quiz");
-        item.put("SQL: Create a DB", listSQLCreate);
-
-        ArrayList<String> listSQLQuery = new ArrayList<>();
-        listSQLQuery.add("Summary");
-        listSQLQuery.add("Simulation");
-        listSQLQuery.add("Quiz");
-        item.put("SQL: Query a DB", listSQLQuery);
-
-        ArrayList<String> listSQLAnomalies = new ArrayList<>();
-        listSQLAnomalies.add("Summary");
-        listSQLAnomalies.add("Simulation");
-        listSQLAnomalies.add("Quiz");
-        item.put("SQL: Anomalies", listSQLAnomalies);
-
-        ArrayList<String> listDDL = new ArrayList<>();
-        listDDL.add("Summary");
-        listDDL.add("Simulation");
-        listDDL.add("Quiz");
-        item.put("SQL: Anomalies", listDDL);
+        TextView tvIssue = (TextView) rootView.findViewById(R.id.tv_issuelink);
+        tvIssue.setMovementMethod(LinkMovementMethod.getInstance());
 
         return rootView;
     }

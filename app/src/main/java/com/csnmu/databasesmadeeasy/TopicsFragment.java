@@ -40,7 +40,7 @@ public class TopicsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_progress, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_topics, container, false);
         expListView = rootView.findViewById(R.id.expandable_list_view);
 
         // Get concept list
