@@ -17,7 +17,7 @@
     <string name="back">Back</string>
     <string name="x_of_y">%1$d of %2$d</string>
     <string name="DBME_About">Databases Made Easy is an application created under the Nelson Mandela University Teaching Development and Innovation Fund to allow students to learn basic concepts of databases at their own pace.</string>
-    <string name="DBME_FeedbackText">This app is continuously under development. If you have any feedback or suggestions, please submit them to the link below</string>
+    <string name="DBME_FeedbackText">This app is continually under development. If you have any feedback or suggestions, please submit them to the link below</string>
 
     <!-- Replace the url here with whichever link will be used to report issues -->
     <string name="submit_issue"><a href="https://forms.gle/Vju7nAq2KnG2YKkLA">Submit Feedback</a></string>

@@ -1,5 +1,6 @@
 package com.csnmu.databasesmadeeasy;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -15,11 +16,13 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.mikepenz.materialdrawer.AccountHeader;
 import com.mikepenz.materialdrawer.AccountHeaderBuilder;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
+import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 
 /*Code reference for tabs: https://www.youtube.com/watch?v=7zaKUc2zfpI   */
@@ -45,8 +48,6 @@ public class MainActivity extends FragmentActivity implements AboutFragment.OnFr
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
 
-        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         // get toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle(R.string.app_name);
@@ -59,7 +60,8 @@ public class MainActivity extends FragmentActivity implements AboutFragment.OnFr
         //TODO: Add header with account details and DBME logo
 
         AccountHeader accountHeader = new AccountHeaderBuilder()
-                .withActivity(this).withTranslucentStatusBar(true).withHeaderBackground(R.color.colorPrimary).build();
+                .withActivity(this).withTranslucentStatusBar(true).withHeaderBackground(R.drawable.navheader)
+                .build();
 
 
         new DrawerBuilder()
