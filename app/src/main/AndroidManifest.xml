@@ -21,7 +21,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ConceptActivity" />
+        <activity
+            android:name=".ConceptActivity"
+            android:parentActivityName="com.csnmu.databasesmadeeasy.MainActivity" >
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.csnmu.databasesmadeeasy.MainActivity" />
+
+        </activity>
     </application>
 
 </manifest>

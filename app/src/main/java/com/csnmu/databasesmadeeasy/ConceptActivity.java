@@ -8,13 +8,22 @@ import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatCallback;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.appcompat.view.ActionMode;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 
-public class ConceptActivity extends FragmentActivity {
+//Delegate AppCompat behavior https://medium.com/google-developer-experts/how-to-add-toolbar-to-an-activity-which-doesn-t-extend-appcompatactivity-a07c026717b3
+
+public class ConceptActivity extends FragmentActivity implements AppCompatCallback {
 
     private static final String TAG = ConceptActivity.class.getSimpleName();
+
+    private AppCompatDelegate delegate;
 
     private Concept concept;
     private Bundle bundle;
@@ -83,11 +92,28 @@ public class ConceptActivity extends FragmentActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_concept);
+
+        //setContentView(R.layout.activity_concept);
+
+
 
         supportFragmentManager = getSupportFragmentManager();
         supportFragmentManager.addOnBackStackChangedListener(backStackChangedListener);
+
+        //Creating AppCompat Delegate
+        delegate = AppCompatDelegate.create(this, this);
+        delegate.onCreate(savedInstanceState);
+
+        super.onCreate(savedInstanceState);
+
+        delegate.setContentView(R.layout.activity_concept);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        delegate.setSupportActionBar(toolbar);
+        ActionBar actionBar = delegate.getSupportActionBar();
+        if (actionBar != null) {
+            delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
+            delegate.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
 
 
         Intent intent = getIntent();
@@ -194,5 +220,23 @@ public class ConceptActivity extends FragmentActivity {
     protected void onStop() {
         super.onStop();
         supportFragmentManager.removeOnBackStackChangedListener(backStackChangedListener);
+    }
+
+    //AppCompatCallback methods
+
+    @Override
+    public void onSupportActionModeStarted(ActionMode mode) {
+
+    }
+
+    @Override
+    public void onSupportActionModeFinished(ActionMode mode) {
+
+    }
+
+    @Nullable
+    @Override
+    public ActionMode onWindowStartingSupportActionMode(ActionMode.Callback callback) {
+        return null;
     }
 }
