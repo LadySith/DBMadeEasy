@@ -25,6 +25,8 @@ public class ConceptActivity extends FragmentActivity implements AppCompatCallba
 
     private AppCompatDelegate delegate;
 
+    private Toolbar toolbar;
+
     private Concept concept;
     private Bundle bundle;
     private Fragment activeFragment = null;
@@ -107,13 +109,29 @@ public class ConceptActivity extends FragmentActivity implements AppCompatCallba
         super.onCreate(savedInstanceState);
 
         delegate.setContentView(R.layout.activity_concept);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         delegate.setSupportActionBar(toolbar);
         ActionBar actionBar = delegate.getSupportActionBar();
         if (actionBar != null) {
             delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
             delegate.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
+
+        //this is needed to enable back action in toolbar
+        getSupportFragmentManager().addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
+            @Override
+            public void onBackStackChanged() {
+                if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
+                    delegate.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+                    toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            onBackPressed();
+                        }
+                    });
+                }
+            }
+        });
 
 
         Intent intent = getIntent();
