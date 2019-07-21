@@ -14,6 +14,7 @@ import java.util.List;
 
 public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
+    private ProgressTracker progressTracker;
     private HashMap<String, List<String>> mStringListHashMap;
     private List<String> mListHeaderGroup;
 
@@ -70,6 +71,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
         TextView textView = view.findViewById(R.id.textViewGroup);
         textView.setText(String.valueOf(getGroup(i)));
+
         return view;
     }
 
@@ -80,6 +82,8 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
         TextView textView = view.findViewById(R.id.textViewItem);
         textView.setText(String.valueOf(getChild(i, i1)));
+
+
         return view;
     }
 
