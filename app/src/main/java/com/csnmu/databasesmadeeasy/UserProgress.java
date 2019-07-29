@@ -34,10 +34,10 @@ public class UserProgress implements Parcelable {
         this.Topic1.put("videoComplete", false);
         this.Topic1.put("quizComplete", false);
 
-        this.Topic2.put("allComplete", true);
-        this.Topic2.put("summaryComplete", true);
-        this.Topic2.put("videoComplete", true);
-        this.Topic2.put("quizComplete", true);
+        this.Topic2.put("allComplete", false);
+        this.Topic2.put("summaryComplete", false);
+        this.Topic2.put("videoComplete", false);
+        this.Topic2.put("quizComplete", false);
 
         this.Topic3.put("allComplete", false);
         this.Topic3.put("summaryComplete", false);
@@ -45,9 +45,9 @@ public class UserProgress implements Parcelable {
         this.Topic3.put("quizComplete", false);
 
         this.Topic4.put("allComplete", false);
-        this.Topic4.put("summaryComplete", true);
+        this.Topic4.put("summaryComplete", false);
         this.Topic4.put("videoComplete", false);
-        this.Topic4.put("quizComplete", true);
+        this.Topic4.put("quizComplete", false);
 
         this.Topic5.put("allComplete", false);
         this.Topic5.put("summaryComplete", false);
@@ -310,6 +310,80 @@ public class UserProgress implements Parcelable {
         }
 
         else return false;
+    }
+
+    //setting complete items
+
+    public void setQuizCompleteTopic(int i){
+
+        if (i == 1) {
+            Topic1.put("quizComplete", true);
+        }
+
+        if (i == 2) {
+            Topic2.put("quizComplete", true);
+        }
+
+        if (i == 3) {
+            Topic3.put("quizComplete", true);
+        }
+
+        if (i == 4) {
+            Topic4.put("quizComplete", true);
+        }
+
+        if (i == 5) {
+            Topic5.put("quizComplete", true);
+        }
+
+    }
+
+    public void setSummaryCompleteTopic(int i){
+
+        if (i == 1) {
+            Topic1.put("summaryComplete", true);
+        }
+
+        if (i == 2) {
+            Topic2.put("summaryComplete", true);
+        }
+
+        if (i == 3) {
+            Topic3.put("summaryComplete", true);
+        }
+
+        if (i == 4) {
+            Topic4.put("summaryComplete", true);
+        }
+
+        if (i == 5) {
+            Topic5.put("summaryComplete", true);
+        }
+
+    }
+
+    public void setVideoCompleteTopic(int i){
+
+        if (i == 1) {
+            Topic1.put("videoComplete", true);
+        }
+
+        if (i == 2) {
+            Topic2.put("videoComplete", true);
+        }
+
+        if (i == 3) {
+            Topic3.put("videoComplete", true);
+        }
+
+        if (i == 4) {
+            Topic4.put("videoComplete", true);
+        }
+
+        if (i == 5) {
+            Topic5.put("videoComplete", true);
+        }
+
     }
 
     @Override

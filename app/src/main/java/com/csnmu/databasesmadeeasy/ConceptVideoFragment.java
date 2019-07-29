@@ -30,7 +30,6 @@ public class ConceptVideoFragment extends Fragment {
     private Context applicationContext;
     private VideoView videoView;
     private int lastPositionMS = 0;
-    private View.OnClickListener onFabClickListener;
 
 
     public ConceptVideoFragment() {

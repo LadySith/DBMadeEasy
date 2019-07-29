@@ -11,8 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ForgotPasswordActivity"></activity>
-        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".AboutActivity"></activity>
+        <activity android:name=".ForgotPasswordActivity" />
+        <activity android:name=".LoginActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -23,12 +24,10 @@
         </activity>
         <activity
             android:name=".ConceptActivity"
-            android:parentActivityName="com.csnmu.databasesmadeeasy.MainActivity" >
-
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.csnmu.databasesmadeeasy.MainActivity" />
-
         </activity>
     </application>
 

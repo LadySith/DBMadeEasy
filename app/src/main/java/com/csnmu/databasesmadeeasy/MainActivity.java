@@ -51,8 +51,6 @@ public class MainActivity extends FragmentActivity implements AboutFragment.OnFr
     FirebaseFirestore db;
     FirebaseUser user;
 
-    private List<QuizAttempt> QuizAttempts;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -98,6 +96,7 @@ public class MainActivity extends FragmentActivity implements AboutFragment.OnFr
                 .withAccountHeader(accountHeader)
                 .withSelectedItem(-1)
                 .addDrawerItems(
+                        new PrimaryDrawerItem().withName("About"),
                         new PrimaryDrawerItem().withName("Logout"))
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                     @Override
@@ -105,6 +104,11 @@ public class MainActivity extends FragmentActivity implements AboutFragment.OnFr
                         switch (position) {
                             //When item in drawer selected, do these
                             case 1: {
+                                Intent intent = new Intent(MainActivity.this, AboutActivity.class);
+                                startActivity(intent);
+                                break;
+                            }
+                            case 2: {
                                 FirebaseAuth.getInstance().signOut();
                                 finish();
                                 Intent intent = new Intent(MainActivity.this, LoginActivity.class);

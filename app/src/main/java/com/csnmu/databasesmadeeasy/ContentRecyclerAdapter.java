@@ -28,11 +28,11 @@ public class ContentRecyclerAdapter extends RecyclerView.Adapter<ContentRecycler
     private final List<Concept> conceptsList;
     private final LayoutInflater mlayoutInflater;
 
-    public ContentRecyclerAdapter(Context mContext, List<Concept> conceptsList) {
+    public ContentRecyclerAdapter(Context mContext, List<Concept> conceptsList, UserProgress userProgress) {
         this.mContext = mContext;
         mlayoutInflater = LayoutInflater.from(mContext);
         this.conceptsList = conceptsList;
-        this.userProgress = new UserProgress("me@me.com");
+        this.userProgress = userProgress;
     }
 
     @NonNull
