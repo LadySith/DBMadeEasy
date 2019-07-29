@@ -103,6 +103,8 @@ public class ConceptQuizFragment extends Fragment {
                     } else {
                         // All questions answered
                         showScore(activity, score, v);
+                        //store quiz attempt
+                        storeQuizAttempt();
                     }
 
                 } else {
@@ -186,6 +188,10 @@ public class ConceptQuizFragment extends Fragment {
         });
 
         return inflate;
+    }
+
+    private void storeQuizAttempt() {
+
     }
 
     /**

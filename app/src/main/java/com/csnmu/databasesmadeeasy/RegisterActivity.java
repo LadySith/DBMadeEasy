@@ -23,6 +23,8 @@ import java.util.Objects;
 @SuppressWarnings("StatementWithEmptyBody")
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private static final String TAG = "RegisterActivity";
+
     private EditText editTextEmail;
     private EditText editTextPassword;
     private EditText editTextConfirmPassword;

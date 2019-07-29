@@ -54,12 +54,25 @@ public class TopicsFragment extends Fragment {
         }
 
         // Create expandable list adapter
+
+        Log.d(TAG, "Sithe: about to create expandable list adapter");
+
+        MainActivity activity = (MainActivity) getActivity();
+
         final ExpandableListAdapter adapter = new ExpandableListAdapter(conceptMapping);
+
+        Log.d(TAG, "Sithe: Created adapter. Now attaching to views");
+
         expListView.setAdapter(adapter);
+
+        Log.d(TAG, "Sithe: set adapter for explist view");
+
         expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
 
             @Override
             public boolean onChildClick(ExpandableListView expandableListView, View view, int i, int i1, long l) {
+
+
                 String conceptTitle = adapter.getGroup(i);
                 Concept concept = null;
                 for (Concept _concept : conceptList) {
@@ -112,6 +125,8 @@ public class TopicsFragment extends Fragment {
                 return true;
             }
         });
+
+        Log.d(TAG, "Sithe: set on child click listeners");
 
         return rootView;
     }
